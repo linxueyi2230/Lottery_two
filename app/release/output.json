@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1},"path":" com.dwb.lottery.two_release_1.0.apk","properties":{"packageId":"com.dwb.lottery.two","split":"","minSdkVersion":"15"}}]
+[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1},"path":"app-release.apk","properties":{"packageId":"com.shadow.lottery","split":"","minSdkVersion":"17"}}]
