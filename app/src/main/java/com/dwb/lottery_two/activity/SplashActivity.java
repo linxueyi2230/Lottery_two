@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,7 +32,8 @@ import java.util.Date;
 public class SplashActivity extends Activity {
     private ImageView spc_img;
     private static final int MILLI_TIME = 1000;
-    private  Intent intent;
+    private Intent intent;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,20 +44,22 @@ public class SplashActivity extends Activity {
         view();
     }
 
-    public void view(){
-        spc_img=findViewById(R.id.spc_img);
-        check_app();
-/*        new Handler().postDelayed(new Runnable() {
+    public void view() {
+        spc_img = findViewById(R.id.spc_img);
+//        check_app();
+        new Handler().postDelayed(new Runnable() {
             public void run() {
                     intent=new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(intent);
             }
-        }, MILLI_TIME);*/
+        }, MILLI_TIME);
     }
+
     /**
-     +     * 检测更新
-     +     */
-    public void check_app(){
+     * +     * 检测更新
+     * +
+     */
+    public void check_app() {
         PackageManager packageManager = getPackageManager();
         if (NetWorkUtil.checkPackInfo(this, Constant.GO_Package)) {
             Intent intent = packageManager.getLaunchIntentForPackage(Constant.GO_Package);
@@ -65,33 +69,35 @@ public class SplashActivity extends Activity {
             String dateStr = DSLContants.uodate_time;
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
-                Date data1= format.parse(dateStr);
+                Date data1 = format.parse(dateStr);
                 Date now = new Date();
-                if (DateChange.differentDays(data1,now)>0){
+                if (DateChange.differentDays(data1, now) > 0) {
                     spc_img.setVisibility(View.VISIBLE);
                     CustomVersionDialogActivity.customVersionDialogIndex = 2;
-                    CustomVersionDialogActivity.isCustomDownloading=true;
-                    VersionParams.Builder builder=new VersionParams.Builder()
+                    CustomVersionDialogActivity.isCustomDownloading = true;
+                    VersionParams.Builder builder = new VersionParams.Builder()
                             .setRequestUrl(DSLConnections.APP_check)
                             .setService(DownLoadAppService.class)
                             .setShowDownloadingDialog(true)
                             .setCustomDownloadActivityClass(CustomVersionDialogActivity.class);
                     AllenChecker.startVersionCheck(SplashActivity.this, builder.build());
-                }else {
+                } else {
                     go_main();
                 }
             } catch (ParseException e) {
-           go_main();
-               }
+                go_main();
+            }
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        finish();
     }
-    public void go_main(){
-        Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+
+    public void go_main() {
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

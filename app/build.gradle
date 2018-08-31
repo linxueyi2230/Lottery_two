@@ -13,10 +13,10 @@ android {
     //配置keystore签名
     signingConfigs {
         release {
-            storeFile file("C:/Users/dwb/Desktop.jks")
-            storePassword "402372"
-            keyAlias "dwb"
-            keyPassword "402372"
+//            storeFile file("C:/Users/dwb/Desktop.jks")
+//            storePassword "402372"
+//            keyAlias "dwb"
+//            keyPassword "402372"
         }
     }
     defaultConfig {
@@ -42,13 +42,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
         debug {
             //设置id可以同时安装多个
 //            applicationIdSuffix "debug"
 //            applicationIdSuffix "debug_two"
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
     }
 //    applicationVariants.all { variant ->
