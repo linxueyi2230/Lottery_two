@@ -8,7 +8,9 @@ import android.view.WindowManager;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.dwb.lottery_two.activity.MainActivity;
 import com.dwb.lottery_two.utils.Constant;
+import com.ego.shadow.Shadow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class DSLApplication extends Application{
         WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         Constant.SCREEN_WIDTH = wm.getDefaultDisplay().getWidth();
         Constant.SCREEN_HEIGHT = wm.getDefaultDisplay().getHeight();
+        Shadow.init("lxy20180830ssc", MainActivity.class);
     }
 
     /**

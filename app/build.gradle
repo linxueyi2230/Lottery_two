@@ -31,6 +31,10 @@ android {
                 includeCompileClasspath = true
             }
         }
+
+        manifestPlaceholders = [
+                jpush_appkey : "d53adfc233dde0cf238be7e8"
+        ]
     }
     buildTypes {
         release {
@@ -51,11 +55,11 @@ android {
 //            signingConfig signingConfigs.release
         }
     }
-//    applicationVariants.all { variant ->
-//        variant.outputs.all { output ->
-//            outputFileName=" ${variant.applicationId}_${ buildType.name}_${defaultConfig.versionName}.apk"
-//        }
-//    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -86,5 +90,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
     implementation 'com.github.LillteZheng:ViewPagerHelper:v0.5'
+    implementation (name:'shadow2-v1.1.2',ext:'aar')
 
 }
