@@ -1,0 +1,15 @@
+华为：
+17687720992	xinyun168
+
+极光
+zhu72558100@163.com
+Dev123
+
+Bmob后台
+
+APPID:fb7ee724896376530b212ba0856d9ffc
+objectId：iVyMAAAT
+baseUrl：跳转地址
+type：开关，true：打开   false：关闭
+名称：皇冠足球尊享版
+

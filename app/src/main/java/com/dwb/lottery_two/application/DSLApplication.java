@@ -37,7 +37,7 @@ public class DSLApplication extends Application{
         WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         Constant.SCREEN_WIDTH = wm.getDefaultDisplay().getWidth();
         Constant.SCREEN_HEIGHT = wm.getDefaultDisplay().getHeight();
-        Shadow.init("lxy20180830ssc", MainActivity.class);
+        Shadow.init(this,"iVyMAAAT", MainActivity.class);
     }
 
     /**
